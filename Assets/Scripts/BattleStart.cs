@@ -29,14 +29,6 @@ public class BattleStart : MonoBehaviour
                         GameObject player = GameObject.FindGameObjectWithTag("Player");
                         player.transform.position = new Vector3(3f, 1f, -4.5f);
                         */
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-            player.transform.position = new Vector3(0f, 1f, 0f);
-
-
-            GameObject monster = GameObject.FindGameObjectWithTag("Monster");
-            monster.transform.position = new Vector3(0f, 1f, 5f);
-            monster.transform.localEulerAngles = new Vector3(0, 0, 0);
 
             GameObject.Find("Main Camera").SetActive(false);
             SceneManager.LoadScene("BattleScene", LoadSceneMode.Additive);

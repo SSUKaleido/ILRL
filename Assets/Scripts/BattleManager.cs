@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
+    
 
     public static BattleManager instance;
 
@@ -56,6 +57,8 @@ public class BattleManager : MonoBehaviour
         monster.transform.position = new Vector3(0f, 1f, 5f);
         monster.transform.localEulerAngles = new Vector3(0, 0, 0);
         */
+
+        //GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0,1,0);
 
         BattleStart(new string[] {  "Monster1"  });
 
@@ -355,8 +358,19 @@ public class BattleManager : MonoBehaviour
             //end the battle
             battleActive = false;
             //battleScene.SetActive(false); Scean 나가는 걸로
-            GameObject.Find("Main Camera").SetActive(true);
+
+            GameObject.Find("Camera").SetActive(false);
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("SampleScene"));
+            GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject.SetActive(true);
+            
+
+            
             SceneManager.UnloadSceneAsync("BattleScene");
+
+            
+            
+            
+            
         }
         else
         {
