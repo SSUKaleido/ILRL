@@ -9,7 +9,7 @@ public class EnemyCombatController : MonoBehaviour
     public GameObject targetPosition; // 이동할 목표 위치
     public Vector3 oriPos; // 처음 오브젝트 위치
     private Animator animator;
-    public Boolean isAttack; // Attack 애니메이션 체크
+    public Boolean isAttack; // Attack 애니메이션 플래그
     public Boolean isDelay; // 코루틴용
 
     private void Start()
