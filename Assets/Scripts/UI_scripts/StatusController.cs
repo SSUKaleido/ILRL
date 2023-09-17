@@ -5,6 +5,20 @@ using UnityEngine.UI;
  
 public class StatusController : MonoBehaviour
 {
+    public static StatusController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // 체력
     [SerializeField]    // 인스펙터 창에서 수정할 수 있게
@@ -39,7 +53,7 @@ public class StatusController : MonoBehaviour
     void Start()
     {
 
-        currentHp = hp-50;
+        currentHp = hp;
         currentMp = mp;
         
     }

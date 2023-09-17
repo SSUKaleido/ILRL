@@ -689,7 +689,7 @@ MonoBehaviour:
   - {fileID: 637145103}
   PlayerMP:
   - {fileID: 745818036}
-  chanceToFlee: 35
+  chanceToFlee: 100
 --- !u!4 &405269577
 Transform:
   m_ObjectHideFlags: 0

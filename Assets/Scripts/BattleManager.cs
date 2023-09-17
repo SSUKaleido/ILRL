@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
-
+    
+    // public StatusController statusController;
     private PlayerAnimator playerAnimator;
 
     public static BattleManager instance;
@@ -282,10 +283,12 @@ public class BattleManager : MonoBehaviour
 
         Instantiate(enemyAttackEffect, activeBattlers[currentTurn].transform.position, activeBattlers[currentTurn].transform.rotation);
 
-        DealDamage(selectedTarget, movePower);
+        
+        GameObject asdf = GameObject.FindGameObjectWithTag("asdf");
+        asdf.GetComponent<StatusController>().DecreaseHP(DealDamage(selectedTarget, movePower));
     }
 
-    public void DealDamage(int target, int movePower)
+    public int DealDamage(int target, int movePower)
     {
         float atkPwr = activeBattlers[currentTurn].strength + activeBattlers[currentTurn].wpnPower;
         float defPwr = activeBattlers[target].defence + activeBattlers[target].armrPower;
@@ -297,9 +300,12 @@ public class BattleManager : MonoBehaviour
 
         activeBattlers[target].currentHP -= damageToGive;
 
+        
+
         Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetDamage(damageToGive);
 
         UpdateUIStats();
+        return damageToGive;
     }
 
     public void UpdateUIStats()
