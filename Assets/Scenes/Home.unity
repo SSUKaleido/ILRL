@@ -2921,35 +2921,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4431008021209710931, guid: 2560472fde8a9cf4fb79e4b37dfade6a, type: 3}
   m_PrefabInstance: {fileID: 1435784675}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &289148150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4425691150110381966, guid: 8b50dc67e9258704690de4917b6b5f8b, type: 3}
-  m_PrefabInstance: {fileID: 659301208}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &289148152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289148150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 730be007c4f567c4c996e08d0d7d2961, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayer: 0
-  movesAvailable: []
-  charName: 
-  currentHP: 0
-  MaxHP: 0
-  currentMP: 0
-  MaxMP: 0
-  strength: 0
-  defence: 0
-  wpnPower: 0
-  armrPower: 0
-  hasDied: 0
 --- !u!1001 &297754510
 PrefabInstance:
   m_ObjectHideFlags: 0

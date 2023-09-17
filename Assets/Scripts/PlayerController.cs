@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         }
         if (isDelay) {
             movement3D.MoveSpeed = 0;
+            
         }
     }
 
