@@ -6,15 +6,10 @@ public class Movement3D : MonoBehaviour
     private float moveSpeed = 100; //�̵��ӵ�
 
     [SerializeField]
-    private float runSpeed;
-    private float applySpeed;
-    [SerializeField]
     private float gravity = -9.87f; //�߷°�� 
     [SerializeField]
     private float jumpForce = 3.0f; //�پ������ ��
     private Vector3 moveDirection;  //�̵� ����
-
-    private bool isRun = false; // 기본값 false
 
     private CharacterController characterController;
 
@@ -26,7 +21,6 @@ public class Movement3D : MonoBehaviour
     public void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        applySpeed = moveSpeed;
     }
 
     private void Update()
@@ -36,10 +30,7 @@ public class Movement3D : MonoBehaviour
             moveDirection.y += gravity * Time.deltaTime;
         }
 
-        TryRun();
-
-
-        characterController.Move(moveDirection * applySpeed * Time.deltaTime);
+        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
     public void MoveTo(Vector3 direction)
@@ -57,41 +48,6 @@ public class Movement3D : MonoBehaviour
         {
             moveDirection.y = jumpForce;
         }
-    }
-
-        private void TryRun()
-    {
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-
-            Running();
-
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-
-            RunningCancel();
-
-        }
-
-    }
-
-    private void Running()
-    {
-
-        isRun = true;
-        applySpeed = runSpeed;
-
-    }
-
-    private void RunningCancel()
-    {
-
-        isRun = false;
-        applySpeed = moveSpeed;
-
     }
 
 }

@@ -49456,7 +49456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
-  runSpeed: 300
   gravity: -9.87
   jumpForce: 3
 --- !u!114 &1231390862
@@ -75023,7 +75022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   hpIncreaseSpeed: 1
-  hpRechargeTime: 5
+  hpRechargeTime: 0.5
   mp: 100
   images_gauge:
   - {fileID: 272254313}
