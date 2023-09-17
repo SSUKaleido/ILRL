@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         }
         if (isDelay) {
             movement3D.MoveSpeed = 0;
+            movement3D.applySpeed = 0;
         }
     }
 
@@ -73,7 +74,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator CountAttackDelay()
     {   
         yield return new WaitForSeconds(delayTime); //delayTime ��ŭ ������ �ش�.
-        
         isDelay = false;
 
     }
