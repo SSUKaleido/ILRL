@@ -25,6 +25,8 @@ public class PauseMenu : MonoBehaviour
             if (!isPause)
             {
 
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
                 go_BaseUi.SetActive(true);
                 isPause = true;
                 CallMenu();
@@ -38,6 +40,9 @@ public class PauseMenu : MonoBehaviour
                 go_BaseUi.SetActive(false);
                 isPause = false;
                 CloseMenu();
+
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
 
             }
                 
