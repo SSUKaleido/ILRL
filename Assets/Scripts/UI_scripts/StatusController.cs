@@ -9,16 +9,16 @@ public class StatusController : MonoBehaviour
     // 체력
     [SerializeField]    // 인스펙터 창에서 수정할 수 있게
     private int hp; // 최대 체력
-    private int currentHp;  // 현재 체력
+    private float currentHp;  // 현재 체력
 
     // 체력 증가량
     [SerializeField]
-    private int hpIncreaseSpeed;
+    private float hpIncreaseSpeed;
 
     // 체력 닳고 바로 증가하는 게 아니기 때문에 재회복 딜레이
     [SerializeField]
-    private int hpRechargeTime;
-    private int currentHpRechargeTime;
+    private float hpRechargeTime;
+    private float currentHpRechargeTime;
 
     // 체력, 마나가 닳았는지 여부.
     private bool hpUsed;    // true = 닳았다. false = 안 닳았다.
@@ -115,7 +115,7 @@ public class StatusController : MonoBehaviour
 
     }
 
-    public int GetCurrentHP()
+    public float GetCurrentHP()
     {
        
         return currentHp;
