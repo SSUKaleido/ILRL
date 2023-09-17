@@ -33,6 +33,13 @@ public class GameManager : MonoBehaviour
     public void GoBattle()
     {
         GameObject.Find("Main Camera").SetActive(false);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<PlayerController>().enabled = false;
+        player.GetComponent<Movement3D>().enabled = false;
+
         SceneManager.LoadScene("BattleScene", LoadSceneMode.Additive);
     }
 
