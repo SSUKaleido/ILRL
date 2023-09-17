@@ -22,15 +22,15 @@ public class CollisionHandler : MonoBehaviour
         Debug.Log("crashed");
         if(other.gameObject.tag == "Portal")
         {
-            SceneManager.LoadScene("Stage1");
+            LoadNextLevel();
         }    
     }
     
     void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex;
-        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        int nextSceneIndex = currentSceneIndex+1;
+        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings-1)
         {
             nextSceneIndex = 0;
         }
