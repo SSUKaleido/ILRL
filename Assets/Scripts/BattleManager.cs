@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
-    
+
+    private PlayerAnimator playerAnimator;
 
     public static BattleManager instance;
 
@@ -41,7 +42,7 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         instance = this;
-
+        playerAnimator = GetComponentInChildren<PlayerAnimator>();
 
     }
 
@@ -343,6 +344,7 @@ public class BattleManager : MonoBehaviour
             }
         }
 
+        playerAnimator.OnWeaponAttack();
         Instantiate(enemyAttackEffect, activeBattlers[currentTurn].transform.position, activeBattlers[currentTurn].transform.rotation);
 
         DealDamage(selectedTarget,movePower);
