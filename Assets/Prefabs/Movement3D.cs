@@ -1,15 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.AI;
 using UnityEngine;
 
 public class Movement3D : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed = 5.0f; //ÀÌµ¿¼Óµµ
+    private float moveSpeed = 5.0f; // ì´ë™ ì†ë„
+
     [SerializeField]
-    private float jumpForce = 3.0f; //¶Ù´Â Èû
-    private float gravity = -9.87f; //Áß·Â°è¼ö  
-    private Vector3 moveDirection;  //ÀÌµ¿¹æÇâ
+    private float gravity = -9.81f; 
+
+    [SerializeField]
+    private float jumpForce = 3.0f; 
+    private Vector3 moveDirection; // ì´ë™ ë°©í–¥
 
     [SerializeField]
     private Transform cameraTransform;
@@ -21,9 +24,9 @@ public class Movement3D : MonoBehaviour
     }
         
 
-    void Update()
+    private void Update()
     {
-        if(characterController.isGrounded == false)
+        if (characterController.isGrounded == false)
         {
             moveDirection.y += gravity * Time.deltaTime;
         }    
