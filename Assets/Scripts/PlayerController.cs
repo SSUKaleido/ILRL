@@ -1,7 +1,6 @@
 
 using System;
 using System.Collections;
-
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -54,6 +53,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             if (!isDelay) //�����̰� ���� ���
             {
+                
                 isDelay = true; // ������ ���� �ɱ�
                 Debug.Log("Attack"); // Debug
                 playerAnimator.OnWeaponAttack(); // Attack �ִϸ��̼�
@@ -64,12 +64,16 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Delay"); //Delay�� �ǰ��ִ� ��Ȳ�� ��� Debug �α� ���
             }
         }
+        if (isDelay) {
+            movement3D.MoveSpeed = 0;
+        }
     }
 
     /* CountAttackDelay : �����̸� �ִ� �ڷ�ƾ �Լ� */
     IEnumerator CountAttackDelay()
     {   
         yield return new WaitForSeconds(delayTime); //delayTime ��ŭ ������ �ش�.
+        
         isDelay = false;
 
     }
