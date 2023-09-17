@@ -1,13 +1,14 @@
+
 using UnityEngine;
 public class Movement3D : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed = 5; //ÀÌµ¿¼Óµµ
+    private float moveSpeed = 5; //ï¿½Ìµï¿½ï¿½Óµï¿½
     [SerializeField]
-    private float gravity = -9.87f; //Áß·Â°è¼ö 
+    private float gravity = -9.87f; //ï¿½ß·Â°ï¿½ï¿½ 
     [SerializeField]
-    private float jumpForce = 3.0f; //¶Ù¾î¿À¸£´Â Èû
-    private Vector3 moveDirection;  //ÀÌµ¿ ¹æÇâ
+    private float jumpForce = 3.0f; //ï¿½Ù¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    private Vector3 moveDirection;  //ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private CharacterController characterController;
 
@@ -27,16 +28,22 @@ public class Movement3D : MonoBehaviour
         {
             moveDirection.y += gravity * Time.deltaTime;
         }
+
+
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
     public void MoveTo(Vector3 direction)
     {
+
         moveDirection = new Vector3(direction.x, moveDirection.y, direction.z);
+
+
     }
 
     public void jumpTo()
     {
+
         if (characterController.isGrounded == true)
         {
             moveDirection.y = jumpForce;

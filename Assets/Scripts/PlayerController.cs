@@ -1,24 +1,27 @@
+
 using System;
 using System.Collections;
+
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private KeyCode jumpKeyCode = KeyCode.Space; //Jumpµ¿ÀÛÀº '½ºÆäÀÌ½º ¹Ù'¸¦ ÅëÇØ Æ®¸®°ÅµÈ´Ù.
+
+    private KeyCode jumpKeyCode = KeyCode.Space; //Jumpï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 'ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ÅµÈ´ï¿½.
     [SerializeField]
     private Transform cameraTransform;
     private Movement3D movement3D;
     private PlayerAnimator playerAnimator;
     [SerializeField]
-    public Boolean isDelay; //°ø°Ý µô·¹ÀÌ ÆÇº°
-    public float delayTime = 1.3f; //µô·¹ÀÌ¸¦ ÁÙ ½Ã°£
+    public Boolean isDelay; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Çºï¿½
+    public float delayTime = 1.3f; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ ï¿½Ã°ï¿½
     
 
 
     private void Awake()
     {
-        /* °ÔÀÓ µ¿ÀÛ È­¸é¿¡ ¸¶¿ì½º Ä¿¼­¸¦ º¸ÀÌÁö ¾Êµµ·Ï ¼³Á¤ */
+        /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        /* ÇÃ·¹ÀÌ¾îÀÇ ¿òÁ÷ÀÓ Á¶ÀÛ */
+        /* ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -40,33 +43,34 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
 
-        /* jumpKeyCode°¡ ÀÔ·ÂµÈ´Ù¸é? */
+        /* jumpKeyCodeï¿½ï¿½ ï¿½Ô·ÂµÈ´Ù¸ï¿½? */
         if (Input.GetKeyDown(jumpKeyCode))
         {
-            playerAnimator.OnJump(); // Jump ¾Ö´Ï¸ÞÀÌ¼Ç
-            movement3D.jumpTo(); // ½ÇÁ¦ Jump µ¿ÀÛ
+            playerAnimator.OnJump(); // Jump ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+            movement3D.jumpTo(); // ï¿½ï¿½ï¿½ï¿½ Jump ï¿½ï¿½ï¿½ï¿½
         }
 
-        /* ¸¶¿ì½º ¿ÞÂÊ Å¬¸¯ÀÌ ÀÔ·ÂµÈ´Ù¸é? */
+        /* ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ÂµÈ´Ù¸ï¿½? */
         if (Input.GetMouseButtonDown(0)) {
-            if (!isDelay) //µô·¹ÀÌ°¡ ¾øÀ» °æ¿ì
+            if (!isDelay) //ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             {
-                isDelay = true; // µô·¹ÀÌ ¿¹¾à °É±â
+                isDelay = true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É±ï¿½
                 Debug.Log("Attack"); // Debug
-                playerAnimator.OnWeaponAttack(); // Attack ¾Ö´Ï¸ÞÀÌ¼Ç
-                StartCoroutine(CountAttackDelay()); // ÄÚ·çÆ¾ ½ÃÀÛ              
+                playerAnimator.OnWeaponAttack(); // Attack ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+                StartCoroutine(CountAttackDelay()); // ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ï¿½              
             }
             else
             {
-                Debug.Log("Delay"); //Delay°¡ µÇ°íÀÖ´Â »óÈ²ÀÏ °æ¿ì Debug ·Î±× Ãâ·Â
+                Debug.Log("Delay"); //Delayï¿½ï¿½ ï¿½Ç°ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ Debug ï¿½Î±ï¿½ ï¿½ï¿½ï¿½
             }
         }
     }
 
-    /* CountAttackDelay : µô·¹ÀÌ¸¦ ÁÖ´Â ÄÚ·çÆ¾ ÇÔ¼ö */
+    /* CountAttackDelay : ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ö´ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½Ô¼ï¿½ */
     IEnumerator CountAttackDelay()
     {   
-        yield return new WaitForSeconds(delayTime); //delayTime ¸¸Å­ À¯¿¹¸¦ ÁØ´Ù.
+        yield return new WaitForSeconds(delayTime); //delayTime ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½.
         isDelay = false;
+
     }
 }
