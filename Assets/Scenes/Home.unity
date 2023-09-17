@@ -2950,23 +2950,6 @@ MonoBehaviour:
   wpnPower: 0
   armrPower: 0
   hasDied: 0
---- !u!114 &289148153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289148150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 285b49c79eeb02242a9a9b34ba9b9422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 100
-  runSpeed: 0
-  applySpeed: 0
-  gravity: -9.87
-  jumpForce: 3
 --- !u!1001 &297754510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6331,6 +6314,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1231390861, guid: 8b50dc67e9258704690de4917b6b5f8b, type: 3}
+      propertyPath: jumpForce
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1208227129975974026, guid: 8b50dc67e9258704690de4917b6b5f8b, type: 3}
       propertyPath: m_RootOrder
       value: 2
