@@ -28,7 +28,8 @@ public class PlayerAnimator : MonoBehaviour
     /*  공격 애니메이션 */
     public void OnWeaponAttack()
     {
-        animator.SetTrigger("onWeaponAttack"); 
+        animator.SetTrigger("onWeaponAttack");
+
     }
 
     /* 충돌 감지 */
