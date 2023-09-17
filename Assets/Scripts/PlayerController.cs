@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
         playerAnimator.OnMovement(x, z);
 
-        movement3D.MoveSpeed = z > 0 ? 5.0f : 2.0f;
+        movement3D.MoveSpeed = z > 0 ? 20.0f : 15.0f;
         movement3D.MoveTo(cameraTransform.rotation * new Vector3(x, 0, z));
 
         transform.rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);

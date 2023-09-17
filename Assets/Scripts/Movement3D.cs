@@ -3,7 +3,7 @@ using UnityEngine;
 public class Movement3D : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed = 5; //�̵��ӵ�
+    private float moveSpeed = 100; //�̵��ӵ�
     [SerializeField]
     private float gravity = -9.87f; //�߷°�� 
     [SerializeField]
@@ -14,7 +14,7 @@ public class Movement3D : MonoBehaviour
 
     public float MoveSpeed
     {
-        set => moveSpeed = Mathf.Clamp(value, 2.0f, 5.0f);
+        set => moveSpeed = Mathf.Clamp(value, 2.0f, 100.0f);
     }
 
     public void Awake()

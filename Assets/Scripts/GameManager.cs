@@ -21,5 +21,19 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            GoBattle();
+        }
+    }
+
+    public void GoBattle()
+    {
+        GameObject.Find("Main Camera").SetActive(false);
+        SceneManager.LoadScene("BattleScene", LoadSceneMode.Additive);
+    }
+
 }
