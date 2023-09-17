@@ -39,7 +39,7 @@ public class StatusController : MonoBehaviour
     void Start()
     {
 
-        currentHp = hp-50;
+        currentHp = hp;
         currentMp = mp;
         
     }
