@@ -16,13 +16,16 @@ public class PlayerController : MonoBehaviour
     public Boolean isDelay; //���� ������ �Ǻ�
     public float delayTime = 1.3f; //�����̸� �� �ð�
     
-
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     private void Awake()
     {
         /* ���� ���� ȭ�鿡 ���콺 Ŀ���� ������ �ʵ��� ���� */
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+
 
         /* */
         movement3D = GetComponent<Movement3D>();

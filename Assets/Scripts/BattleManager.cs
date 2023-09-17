@@ -35,7 +35,7 @@ public class BattleManager : MonoBehaviour
 
     public Text[] playerName, playerHP, PlayerMP;
 
-    public int chanceToFlee = 35;
+    public int chanceToFlee = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +60,9 @@ public class BattleManager : MonoBehaviour
 
         //GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0,1,0);
 
-        BattleStart(new string[] {  "Monster1"  });
+
+
+        BattleStart(new string[] {  "Enemy"  });
 
     }
 
@@ -361,10 +363,15 @@ public class BattleManager : MonoBehaviour
 
             GameObject.Find("Camera").SetActive(false);
             //SceneManager.SetActiveScene(SceneManager.GetSceneByName("SampleScene"));
-            GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject.SetActive(true);
-            
+            GameObject.FindGameObjectWithTag("Player").transform.GetChild(3).gameObject.SetActive(true);
 
-            
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerController>().enabled = true;
+            player.GetComponent<Movement3D>().enabled = true;
+
+
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             SceneManager.UnloadSceneAsync("BattleScene");
 
             
